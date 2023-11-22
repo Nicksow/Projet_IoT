@@ -1,13 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './output.css';
+import {createBrowserRouter,RouterProvider} from "react-router-dom";
+import HomePage from './HomePage/HomePage';
 import reportWebVitals from './reportWebVitals';
+import CookerPage from "./CookerPage/CookerPage";
+import WaiterPage from "./WaiterPage/WaiterPage";
+import CommandPage from "./WaiterPage/CommandPage/CommandPage"
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <HomePage/>,
+    },
+    {
+        path:"/serveur",
+        element:<WaiterPage/>,
+    },
+    {
+        path:"/cuisine",
+        element:<CookerPage/>,
+    },
+    {
+        path:"/:id/commande",
+        element:<CommandPage/>
+    }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <RouterProvider router={router}/>
   </React.StrictMode>
 );
 
