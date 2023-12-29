@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import CookerPage from "./CookerPage/CookerPage";
 import WaiterPage from "./WaiterPage/WaiterPage";
 import CommandPage from "./WaiterPage/CommandPage/CommandPage"
+import TakeAwayCommandPage from "./WaiterPage/TakeAwayPage/TakeAwayCommandPage"
+import TakeAwayCommandView from "./WaiterPage/TakeAwayPage/TakeAwayCommandView/TakeAwayCommandView";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +26,15 @@ const router = createBrowserRouter([
     {
         path:"/:id/commande",
         element:<CommandPage/>
-    }
+    },
+    {
+        path:"/:id/emporter",
+        element:<TakeAwayCommandPage/>
+    },
+    {
+        path:"/:id/emporter/détails",
+        element:<TakeAwayCommandView/>,
+    },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

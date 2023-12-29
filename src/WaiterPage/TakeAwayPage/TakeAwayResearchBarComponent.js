@@ -2,18 +2,17 @@ import {useEffect} from "react";
 import {useCommand} from "../../useCommand";
 import {useNavigate} from "react-router-dom";
 
-export default function ResearchBarComponent(props){
-    const tableId = props.id
-    const typeR = "restaurantCommand"
+export default function TakeAwayResearchBarComponent(props){
+    const id = props.id
+    const typeT = "takeAwayCommand"
     const navigate = useNavigate()
-    const {loadDish, loadSoup, loadStarter, loadMain, loadMenu, inputText, inputHandler, inputButton, clearSearchbar} = useCommand();
+    const {loadDish, loadSoup, loadStarter, loadMain, inputText, inputHandler, inputButton, clearSearchbar} = useCommand();
 
     useEffect(() => {
         loadDish()
-        loadSoup(tableId,typeR)
-        loadStarter(tableId,typeR)
-        loadMain(tableId,typeR)
-        loadMenu(tableId,typeR)
+        loadSoup(id,typeT)
+        loadStarter(id,typeT)
+        loadMain(id,typeT)
     },[])
 
     return(
@@ -24,7 +23,7 @@ export default function ResearchBarComponent(props){
                         <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                     </svg>
                 </button>
-                <p className="text-2xl"> Table  {tableId}</p>
+                <p className="text-2xl">Commande : {id}</p>
             </div>
             <div className="flex flex-wrap">
                 {Array.from({ length: 10 }, (_, index) => (
